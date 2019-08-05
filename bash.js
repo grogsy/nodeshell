@@ -1,6 +1,8 @@
 const { pwd } = require('./pwd');
 const { ls } = require('./ls');
 const { cat } = require('./cat')
+const { curl } = require('./curl')
+
 process.stdout.write('prompt >');
 
 process.stdin.on('data', (data) => {
@@ -20,7 +22,11 @@ process.stdin.on('data', (data) => {
     const cmds = cmd.split(" ");
 
     if (cmds[0] === 'cat') {
-        cat(cmds[1])
+        cat(cmds[1]);
+    }
+
+    if (cmds[0] === 'curl') {
+        curl(cmds[1]);
     }
 });
 
